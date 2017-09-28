@@ -1,0 +1,14 @@
+
+{% extends "polls/base.html" %}
+
+{% block content %}
+  {% for mote in motes %}
+
+      <h3>{{ mote.board }}</h3>
+      <p>{{ mote.data}}</p>
+        <p><a href="{% url 'lire' mote.id %}">Detail d'activité</a>
+
+  {% empty %}
+     Categorie vide.
+  {% endfor %}
+{% endblock %}

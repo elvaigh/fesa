@@ -1,0 +1,13 @@
+{% extends "polls/base.html" %}
+{% block content %}
+{% if not user.is_authenticated %}
+
+  <h1>Inscription</h1>
+  <form method="post" action="./inscription">
+      {% csrf_token %}
+      {% load bootstrap %}
+      {{ form|bootstrap }}   
+      <input type="submit" value="Valider" />
+  </form>
+{% endif %}
+{% endblock %}
