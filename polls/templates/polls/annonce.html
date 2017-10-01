@@ -1,0 +1,31 @@
+
+{% extends "polls/base.html" %}
+<body>
+  
+{% block content %}
+<div class="form-group"> 
+  <div class="col-sm-offset-0">
+    <h1>Annonce</h1>
+  </div>
+</div> 
+{% load bootstrap3 %}
+ <form method="post" action="./annonce" role="form" class="col-sm-offset-0">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% if user.is_authenticated %} 
+        <input type="hidden" name="owner" value="{{ user.username}}">
+         <input type="hidden" name="owner" value="logged">
+      {% else%}
+        <input type="text" id="name" class="form-control" placeholder="Username" name="owner">
+				<input type="password" id="paw" class="form-control" placeholder="Password" name="pwd">
+      {% endif %}
+      <div class="form-group"> 
+        <div class="col-sm-offset-0 col-sm-1">
+          <button type="submit" class="btn btn-default">Envoyer</button>
+        </div>
+      </div> 
+   
+</form>
+{% endblock %}
+
+</body>

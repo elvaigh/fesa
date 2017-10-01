@@ -4,6 +4,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Question
+from .models import Profil,Annonce
 
-admin.site.register(Question)
+admin.site.register(Profil)
+admin.site.register(Annonce)
